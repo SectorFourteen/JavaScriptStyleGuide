@@ -35,57 +35,59 @@ Exceptions :
 #### 2. Syntaxe
 A. Parenthèses, Accolades, Sauts de ligne
 
-	//if/else/for/while/try ont toujours des espaces, des parenthèses et plusieurs sauts de ligne cela améliore la lisibilité
+```javascript
 
-	//Exemples de mauvaises pratiques
+//if/else/for/while/try ont toujours des espaces, des parenthèses et plusieurs sauts de ligne cela améliore la lisibilité
 
-	if(condition) doSomething();
+//Exemples de mauvaises pratiques
 
-	while(condition) iterating++;
+if(condition) doSomething();
 
-	for(var i=0;i<100;i++) someIterativeFn();
+while(condition) iterating++;
 
-	//Bonnes pratiques, utilisez les espaces afin d'améliorer la lisibilité
+for(var i=0;i<100;i++) someIterativeFn();
 
-	if ( condition ) {
-		// déclarations
-	}
+//Bonnes pratiques, utilisez les espaces afin d'améliorer la lisibilité
 
-	while ( condition ) {
-		// déclarations
-	}
+if ( condition ) {
+  // déclarations
+}
 
-	for ( var i = 0; i < 100; i++ ) {
-		// déclarations
-	}
+while ( condition ) {
+  // déclarations
+}
 
-	// même mieux :
-	var i,
+for ( var i = 0; i < 100; i++ ) {
+  // déclarations
+}
+
+// même mieux :
+var i,
 	length = 100;
 
-	for ( i = 0; i < length; i++ ) {
-		// déclarations
-	}
+for ( i = 0; i < length; i++ ) {
+  // déclarations
+}
 
-	// Ou...
-	var i = 0,
-		length = 100;
+// Ou...
+var i = 0,
+	length = 100;
 
-	for ( ; i < length; i++ ) {
-		// déclarations
-	}
+for ( ; i < length; i++ ) {
+  // déclarations
+}
 
-	var prop;
-	for ( prop in object ) {
-		// déclarations
-	}
+var prop;
+for ( prop in object ) {
+  // déclarations
+}
 
-	if ( true ) {
-		// déclarations
-	} else {
-		// déclarations
-	}
-
+if ( true ) {
+  // déclarations
+} else {
+  // déclarations
+}
+```
 
 
 B. Variables
@@ -94,106 +96,106 @@ En général, utilisez functionNamesLikeThis, variableNamesLikeThis, ClassNamesL
 
 B. Déclaration, Affectation, Fonction ( Nommage, Expression, Constructeur )
 
-	//Variables
-	var foo = "bar",
+```javascript
+//Variables
+var foo = "bar",
 	num = 1,
 	undef;
 
-	// Notations littérales :
-	var array = [],
-	object = {};
+// Notations littérales :
+var array = [],
+object = {};
 
-	//Utiliser une unique déclaration `var` par portée de (fonction) améliore la
-	lisibilité et permet de garder une déclaration séparée du
-	corps de la fonction
-	(en adéquation avec la portée des variables JS).
+//Utiliser une unique déclaration 'var' par portée de (fonction) améliore la lisibilité
+//et permet de garder une déclaration séparée du corps de la fonction
+//(en adéquation avec la portée des variables JS).
 
-	//Mauvais exemple
-	var foo = "";
-	var bar = "";
-	var qux;
+//Mauvais exemple
+var foo = "";
+var bar = "";
+var qux;
 
-	//Bonne pratique
+//Bonne pratique
 
-	var foo = "",
+var foo = "",
 	bar = "",
 	quux;
 
-	//La déclaration des variables 'var' doit toujours être au début
-	//de la portée de chaque fonction.
+//La déclaration des variables 'var' doit toujours être au début
+//de la portée de chaque fonction.
 
-	Mauvaise pratique
-	function foo() {
+Mauvaise pratique
+function foo() {
 
-		// déclarations
-		var bar = "",
-			qux;
-	}
+  // déclarations
+  var bar = "",
+	  qux;
+}
 
-	//Bonne pratique
-	function foo() {
-		var bar = "",
-		qux;
+//Bonne pratique
+function foo() {
+  var bar = "",
+  qux;
 
-		// toutes les autres déclarations sont après la déclaration des variables.
-	}
+  // toutes les autres déclarations sont après la déclaration des variables.
+}
 
-	// Déclaration de fonction nommée
-	function foo( arg1, argN ) {
+// Déclaration de fonction nommée
+function foo( arg1, argN ) {
 
-	}
+}
 
-	// Utilisation
-	foo( arg1, argN );
-
-
-	// Déclaration de fonction nommée
-	function square( number ) {
-		return number * number;
-	}
-
-	// Utilisation
-	square( 10 );
-
-	// Passage d'une callback par variable nommée
-	function square( number, callback ) {
-		callback( number * number );
-	}
-
-	square( 10, function( square ) {
-		// déclaration de la callback
-	});
+// Utilisation
+foo( arg1, argN );
 
 
-	// Expression de fonction
-	var square = function( number ) {
-		// Renvoie quelque chose de pertinent
-		return number * number;
-	};
+// Déclaration de fonction nommée
+function square( number ) {
+  return number * number;
+}
 
-	// Expression de fonction avec un identifiant
-	// Cette forme préférée a pour valeur ajoutée d'être en mesure de se faire appeler
-	// et d'avoir une identité dans les traces de pile
-	var factorial = function factorial( number ) {
-		if ( number < 2 ) {
-			return 1;
-		}
+// Utilisation
+square( 10 );
 
-		return number * factorial( number-1 );
-	};
+// Passage d'une callback par variable nommée
+function square( number, callback ) {
+  callback( number * number );
+}
+
+square( 10, function( square ) {
+  // déclaration de la callback
+});
 
 
-	// Déclaration de Constructeur
-	function FooBar( options ) {
+// Expression de fonction
+var square = function( number ) {
+  // Renvoie quelque chose de pertinent
+  return number * number;
+};
 
-		this.options = options;
-	}
+// Expression de fonction avec un identifiant
+// Cette forme préférée a pour valeur ajoutée d'être en mesure de se faire appeler
+// et d'avoir une identité dans les traces de pile
+var factorial = function factorial( number ) {
+  if ( number < 2 ) {
+    return 1;
+  }
 
-	// Utilisation
-	var fooBar = new FooBar({ a: "alpha" });
+  return number * factorial( number-1 );
+};
 
-	fooBar.options;
-	// { a: "alpha" }
+
+// Déclaration de Constructeur
+function FooBar( options ) {
+
+  this.options = options;
+}
+
+// Utilisation
+var fooBar = new FooBar({ a: "alpha" });
+
+fooBar.options;
+// { a: "alpha" }
 
 #### Formattage du code
 
