@@ -196,6 +196,7 @@ var fooBar = new FooBar({ a: "alpha" });
 
 fooBar.options;
 // { a: "alpha" }
+```
 
 #### Formattage du code
 
