@@ -1,3 +1,4 @@
+# Guide d'écriture d'un code Javascript
 ## Tout code, peu importe les bases sur lesquelles il est établi, devrait ressembler au code tapé par une seule personne, peu importe le nombre de personnes ayant contribué.
 
 > "Il est essentiel de réaliser que pour la réussite d'un projet, un bon intervenant ne doit pas coder pour soi-même mais pour les autres. Si un millier de personnes doivent utiliser votre code, écrivez-le avec un maximum de clarté, non pour des préférences personnelles, mais pour être au plus près du besoin." - Idan Gazit
